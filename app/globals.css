@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-neutral-950 text-neutral-50 min-h-screen font-body;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.gradient-border {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.5));
+  padding: 1px;
+  border-radius: 16px;
+}
+
+.card-panel {
+  @apply rounded-2xl bg-neutral-900/60 border border-neutral-800 shadow-glow;
+}
+
+.a5-surface {
+  width: 420px;
+  height: 595px;
+  @apply rounded-xl overflow-hidden shadow-2xl border border-neutral-200/60;
+}
+
+.leather-pattern {
+  background-image: var(--texture, theme('backgroundImage.leather-texture'));
+  background-size: cover;
+}
+
+.deco-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.deco-divider::before,
+.deco-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.3), transparent);
+}
+
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 px-4;
+}
+
+.modal-panel {
+  @apply bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl w-full max-w-xl p-6;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .table-grid {
+    grid-template-columns: 1fr;
+  }
+}
