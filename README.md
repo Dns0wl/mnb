@@ -1,27 +1,33 @@
-# HW DNS Manual
+# Hayu Widyas Office Dashboard
 
-Plugin WordPress ringan untuk membuat dan mencetak Manual Paper berformat A5 dengan latar belakang khusus. Admin dapat mengisi data pelanggan, tanggal pembelian, serta kanal pembelian, kemudian melihat atau mengunduh PDF hasilnya.
+Internal dashboard for **dash.hayuwidyas.com** built with Next.js 14, TypeScript, and Tailwind CSS. The first module, **Manual Paper**, lets admins generate branded A5 PDF manual papers for customers with preview and download actions.
 
-## Fitur
-- Halaman dashboard **Manual Paper** dengan tabel daftar manual.
-- Tombol **Add New Manual** memunculkan modal "Manual Data" berisi input wajib:
-  - Customer Name
-  - Purchase Date (pilih **Now** atau gunakan kalender **Choose** untuk format DD/MM/YY)
-  - Purchase Channel dengan opsi Marketplace, Customer Service, Boutique, Website
-  - Opsi lanjutan untuk Marketplace: Tiktok Shop, Shopee, atau Tokopedia
-- Aksi **Submit** membuat entri Manual Paper dan menyediakan tombol **View** serta **Download** PDF.
-- PDF A5, font 12, memakai latar belakang yang sama untuk setiap manual: `https://hayuwidyas.com/wp-content/uploads/2025/11/MNB-L_Cust_HW-BG.png`.
+## Features
+- Dashboard shell with sidebar navigation and topbar.
+- Manual Paper list with customer name, purchase date, purchase channel, and actions.
+- Add New Manual Paper modal with validation for required fields.
+- Responsive, CSS-driven A5 Manual Paper template (no image assets) with branded layout.
+- Client-side PDF generation using html2canvas + jsPDF with automatic file naming.
 
-## Instalasi
-1. Salin folder plugin ke direktori `wp-content/plugins/hw-dns-manual` pada situs WordPress Anda.
-2. Aktifkan plugin **HW DNS Manual** melalui menu **Plugins** di dashboard.
+## Getting Started
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-## Penggunaan
-1. Buka menu **Manual Paper** di dashboard.
-2. Klik **Add New Manual** dan lengkapi seluruh field pada modal.
-3. Tekan **Submit** untuk membuat manual dan otomatis menyiapkan PDF.
-4. Gunakan tombol **View** untuk membuka PDF di browser atau **Download** untuk mengunduhnya.
+## Manual Paper Flow
+1. Visit `/manual-paper` (default route) to see existing records.
+2. Click **Add New Manual Paper**, fill in the form, then **Save & Generate** to add it to the list.
+3. Use **Preview PDF** to open a modal with the A5 template rendered in-browser.
+4. Use **Download PDF** to export an A5 portrait PDF named `ManualPaper-{CustomerName}-{YYYYMMDD}.pdf`.
 
-## Catatan
-- Plugin menggunakan ekstensi PHP **Imagick** untuk membangkitkan PDF. Pastikan ekstensi ini aktif di server.
-- Jika latar belakang belum tersedia secara lokal, plugin akan mencoba mengunduhnya secara otomatis ke folder aset plugin.
+## Tech Stack
+- Next.js 14 (App Router)
+- TypeScript & React 18
+- Tailwind CSS
+- html2canvas + jsPDF for PDF output
